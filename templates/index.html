@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Model Comparison</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>RAG based Query Answering</h1>
+    
+    <form method="POST">
+        <label for="document">Enter document name:</label><br>
+        <input type="text" id="document" name="document" required><br><br>
+
+        <label for="query">Enter your query:</label><br>
+        <input type="text" id="query" name="query" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+     {% if query and document %}
+
+    <h3>Document:</h3> <p>"{{ document }}"</p>
+
+    <h3>Results for query:</h3> <p>"{{ query }}"</p>
+    
+    <!-- <h3>Best chunk retrieved:</h3> <p>"{{ best_chunk }}"</p> -->
+
+    <h3>Model: roberta-base-cuad-finetuned:</h3>
+    <p><strong>Predicted Answer:</strong> {{ answer1 }}</p>
+    <p><strong>Actual Answer:</strong> {{ best_answer1 }}</p>
+    <p><strong>Rouge Score (F1):</strong> {{ score1 }}</p>
+    <p><strong>Computation time:</strong> {{ time1 }} seconds</p>
+
+    <h3>Model: gpt-neo-1.3B:</h3>
+    <p><strong>Predicted Answer:</strong> {{ answer2 }}</p>
+    <p><strong>Actual Answer:</strong> {{ best_answer2 }}</p>
+    <p><strong>Rouge Score(F1):</strong> {{ score2 }}</p>
+    <p><strong>Computation time:</strong> {{ time2 }} seconds</p>
+    {% endif %}
+</body>
+</html>
