@@ -9,11 +9,16 @@
 
 pip install -r requirements.txt
 
-## Create and activate env
+## Create a virtual env
 
-python -m venv env 
+python -m venv env
 
+## Activate the Virtual Environment
+  ## On Windows
 .\env\Scripts\Activate.ps1
+
+  ## On macOS/Linux
+source env/bin/activate
 
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
 
